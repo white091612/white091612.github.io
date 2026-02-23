@@ -1,0 +1,75 @@
+# ──────────────────────────────────────────────
+# Site Settings
+# ──────────────────────────────────────────────
+title: "White's Dev Blog"
+description: "개발 기록과 학습 노트를 정리하는 블로그"
+url: "https://white091612.github.io"
+baseurl: ""
+
+# ──────────────────────────────────────────────
+# Author
+# ──────────────────────────────────────────────
+author:
+  name: "White"
+  email: ""
+  bio: "Developer"
+  avatar: "/assets/images/avatar.png"
+  github: "white091612"
+  # linkedin: ""
+  # twitter: ""
+
+# ──────────────────────────────────────────────
+# Build Settings
+# ──────────────────────────────────────────────
+markdown: kramdown
+highlighter: rouge
+permalink: /:categories/:year/:month/:day/:title/
+
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    block:
+      line_numbers: true
+
+# ──────────────────────────────────────────────
+# Plugins
+# ──────────────────────────────────────────────
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# ──────────────────────────────────────────────
+# Pagination
+# ──────────────────────────────────────────────
+paginate: 10
+paginate_path: "/page/:num/"
+
+# ──────────────────────────────────────────────
+# Collections & Defaults
+# ──────────────────────────────────────────────
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      comments: true
+      toc: true
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# ──────────────────────────────────────────────
+# Exclude from build
+# ──────────────────────────────────────────────
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+  - README.md
+  - LICENSE

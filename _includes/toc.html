@@ -1,0 +1,17 @@
+{% assign headers = include.html | split: '<h' %}
+{% assign headings = "" | split: "" %}
+{% for header in headers %}
+  {% if header contains 'id="' %}
+    {% assign level = header | slice: 0, 1 | plus: 0 %}
+    {% if level >= 2 and level <= 3 %}
+      {% assign id_start = header | split: 'id="' %}
+      {% assign id = id_start[1] | split: '"' | first %}
+      {% assign title_start = header | split: '>' %}
+      {% assign title_with_end = title_start[1] | split: '</h' %}
+      {% assign title = title_with_end[0] | strip_html %}
+      <ul class="toc-list toc-level-{{ level }}">
+        <li><a href="#{{ id }}">{{ title }}</a></li>
+      </ul>
+    {% endif %}
+  {% endif %}
+{% endfor %}
